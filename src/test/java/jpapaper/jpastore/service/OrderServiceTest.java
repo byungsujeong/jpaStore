@@ -84,7 +84,7 @@ public class OrderServiceTest {
     private Member createMember() {
         Member member = new Member();
         member.setName("회원1");
-        member.setAdress(new Address("서울", "서울로", "03909"));
+        member.setAddress(new Address("서울", "서울로", "03909"));
         em.persist(member);
         return member;
     }

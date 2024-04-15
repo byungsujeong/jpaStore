@@ -1,5 +1,6 @@
 package jpapaper.jpastore.service;
 
+import jpapaper.jpastore.domain.Item.Book;
 import jpapaper.jpastore.domain.Item.Item;
 import jpapaper.jpastore.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,17 @@ public class ItemService {
     @Transactional
     public void saveItem(Item item) {
         itemRepository.save(item);
+    }
+
+    @Transactional
+    public Book updateBook(Long itemId, String name, int price, int stockQuantity, String author, String isbn) {
+        Book findBook = itemRepository.findBook(itemId);
+        findBook.setName(name);
+        findBook.setPrice(price);
+        findBook.setStockQuantity(stockQuantity);
+        findBook.setAuthor(author);
+        findBook.setIsbn(isbn);
+        return findBook;
     }
 
     public List<Item> findItem() {
