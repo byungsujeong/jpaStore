@@ -8,6 +8,7 @@ import jpapaper.jpastore.domain.OrderItem;
 import jpapaper.jpastore.repository.ItemRepository;
 import jpapaper.jpastore.repository.MemberRepository;
 import jpapaper.jpastore.repository.OrderRepository;
+import jpapaper.jpastore.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -65,8 +66,8 @@ public class OrderService {
     }
 
     // 검색
-    /*public List<Order> findOrders(OrderSearch orderSearch) {
-        return orderRepository.findAll(orderSearch);
-    }*/
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByString(orderSearch);
+    }
 
 }

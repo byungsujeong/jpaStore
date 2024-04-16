@@ -32,7 +32,7 @@ public class ItemService {
         return findBook;
     }
 
-    public List<Item> findItem() {
+    public List<Item> findItems() {
         return itemRepository.findAll();
     }
 
